@@ -37,7 +37,9 @@ def find_active_billing_account():
 
 
     for row in csv_reader:
-        if len(row) == 3 and row[2] == 'True' and "Trial Billing Account" in row[0]:
+        if len(row) == 3 and row[2] == 'True' and "無料" in row[0]:
+            return row[0], row[1] # displayName, name (ID)
+        elif len(row) == 3 and row[2] == 'True' and "Trial Billing Account" in row[0]:
             return row[0], row[1] # displayName, name (ID)
 
     return None, None
